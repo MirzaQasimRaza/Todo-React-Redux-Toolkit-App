@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-    todos: [{id: 1, text: "Hello World"}]
+    todos: [] // made it empty so that everytime the component re-renders, the same Hello World with id,1 doesn't add in the todo tasks.
 }
 
 export const todoSlice = createSlice({
@@ -21,7 +21,7 @@ export const todoSlice = createSlice({
         },
 
         editTodo: (state,action)=>{
-            const {id, newText} = action.payload;
+            const {id, newText} = action.payload; // yahan newText basically todos ki text property ko replace kardega
             const todo = state.todos.find((todo)=> todo.id === id);
             if(todo){
                 todo.text = newText; // update Text
